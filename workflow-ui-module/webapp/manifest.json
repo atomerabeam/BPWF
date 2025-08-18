@@ -1,0 +1,218 @@
+{
+  "_version": "1.26.0",
+  "sap.app": {
+    "id": "workflowuimodule",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.8.4",
+      "toolsId": "c392d0d1-5230-43de-90b8-399d74ee758d"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_bpct_n_o4/srvd/sap/zui_bpct_n_o4/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation0"
+          ],
+          "localUri": "localService/zui_bpct_n_o4/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "annotation0": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation0.xml",
+        "settings": {
+          "localUri": "annotations/annotation0.xml"
+        }
+      },
+      "ZBP_WF_SRV": {
+        "uri": "/sap/opu/odata/sap/ZBP_WF_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZBP_WF_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.82.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "workflowuimodule.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "currentUser": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "preload": false
+      },
+      "zui_bpct_n_o4": {
+        "dataSource": "zui_bpct_n_o4",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "ZBP_WF_SRV": {
+        "dataSource": "ZBP_WF_SRV",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "workflowuimodule.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMyTaskUI",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMyTaskUI"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMyTaskUI": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MyTaskUI",
+          "viewName": "MyTaskUI"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "workflowuimodule.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "bpmanaged_approuter"
+  },
+  "sap.bpa.task": {
+    "_version": "1.0.0",
+    "outcomes": [
+      {
+        "id": "approve",
+        "label": "Approve"
+      },
+      {
+        "id": "reject",
+        "label": "Reject"
+      }
+    ],
+    "inputs": {
+      "$schema": "http://json-schema.org/draft-07/schema",
+      "title": "input",
+      "type": "object",
+      "required": [
+        "BTPRequestID",
+        "Gjahr"
+      ],
+      "properties": {
+        "BTPRequestID": {
+          "type": "string",
+          "title": "BTP Request ID",
+          "description": "BTP Request ID"
+        },
+        "Gjahr": {
+          "type": "string",
+          "title": "Fiscal Year",
+          "description": "Fiscal Year"
+        }
+      }
+    },
+    "outputs": {
+      "$schema": "http://json-schema.org/draft-07/schema",
+      "title": "output",
+      "type": "object",
+      "required": [
+        "comment"
+      ],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "title": "Comment",
+          "description": "Comment to buyer"
+        }
+      }
+    },
+    "category": "approval"
+  }
+}

@@ -1,0 +1,13 @@
+<mvc:View controllerName="workflowuimodule.controller.MyTaskUI" 
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true" 
+xmlns="sap.m"
+xmlns:l="sap.ui.layout"
+xmlns:core="sap.ui.core">
+    <l:Splitter id="_IDGenSplitter1">
+        <!-- <core:Fragment fragmentName="workflowuimodule.view.Fragment.NewData" type="XML"/>
+        <core:Fragment fragmentName="workflowuimodule.view.Fragment.OldData" type="XML"/> -->
+    </l:Splitter>
+</mvc:View>
+
+   

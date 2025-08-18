@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:uxap="sap.uxap"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+
+    <Page showHeader="false">
+        <content>
+            <ObjectHeader
+                title="Requested Data"
+                responsive="true">
+            </ObjectHeader>
+            <!-- <core:Fragment fragmentName="workflowuimodule.view.Fragment.ObjectPageSection" type="XML" /> -->
+            <IconTabBar>
+                <items>
+                    <IconTabFilter text="Overview" icon="sap-icon://overview-chart">
+                       
+                        <core:Fragment fragmentName="workflowuimodule.view.Fragment.ObjectPageSection" type="XML" />
+                      
+                    </IconTabFilter>
+
+                    <IconTabFilter text="More Info" icon="sap-icon://hint">
+                        <Panel expandable="true" expanded="false" headerText="Description">
+                            <Text text="{Description}" />
+                        </Panel>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+</core:FragmentDefinition>

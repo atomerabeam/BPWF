@@ -1,0 +1,43 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+
+    <Page showHeader="false">
+        <content>
+            <ObjectHeader
+                title="Old Data"
+                responsive="true">
+            </ObjectHeader>
+
+            <IconTabBar expandable="false">
+                <items>
+                    <IconTabFilter text="Overview" icon="sap-icon://overview-chart">
+                        <f:SimpleForm editable="false" layout="ResponsiveGridLayout">
+                            <f:content>
+                                <core:Title text="Product Details" />
+                                <Label text="Name" />
+                                <Text text="{Name}" />
+
+                                <Label text="Category" />
+                                <Text text="{Category}" />
+
+                                <Label text="Price" />
+                                <Text text="{Price} {CurrencyCode}" />
+                            </f:content>
+                        </f:SimpleForm>
+                    </IconTabFilter>
+
+                    <IconTabFilter text="More Info" icon="sap-icon://hint">
+                        <Panel expandable="true" expanded="false" headerText="Description">
+                            <Text text="{Description}" />
+                        </Panel>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+
+</core:FragmentDefinition>

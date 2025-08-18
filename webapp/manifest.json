@@ -1,0 +1,174 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "bpwf",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.18.4",
+      "toolsId": "b857bfd5-9ea4-48ae-99d9-bb275c583862"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_bpct_n_o4/srvd/sap/zui_bpct_n_o4/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "bpwf.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZR_BPCT_NList",
+          "target": "ZR_BPCT_NList"
+        },
+        {
+          "pattern": "ZR_BPCT_N({key}):?query:",
+          "name": "ZR_BPCT_NObjectPage",
+          "target": "ZR_BPCT_NObjectPage"
+        }
+      ],
+      "targets": {
+        "ZR_BPCT_NList": {
+          "type": "Component",
+          "id": "ZR_BPCT_NList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZR_BPCT_N",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZR_BPCT_N": {
+                  "detail": {
+                    "route": "ZR_BPCT_NObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "columns": {
+                    "DataField::Zbtprn": {
+                      "availability": "Default",
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::Gjahr": {
+                      "availability": "Default",
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::Partner": {
+                      "availability": "Default",
+                      "widthIncludingColumnHeader": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZR_BPCT_NObjectPage": {
+          "type": "Component",
+          "id": "ZR_BPCT_NObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZR_BPCT_N"
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "ZR_BPCT_NObjectPage": {
+            "controllerName": "bpwf.ext.controller.ObjectPageExt"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

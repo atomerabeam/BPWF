@@ -1,0 +1,346 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:uxap="sap.uxap">
+    <uxap:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+        <uxap:sections>
+            <uxap:ObjectPageSection titleUppercase="false" title="General Information">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <f:Form width="100%">
+                            <f:layout>
+                                <f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+                            </f:layout>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="BP Request Type">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="BP Type">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="Business Partner">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Blocked?">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="First name">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Last Name">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                        </f:Form>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>		
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection titleUppercase="false" title="FI Support Role">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <f:Form width="100%">
+                            <f:layout>
+                                <f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+                            </f:layout>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="Reconcilitation Amount">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Sort Key">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Payment Method">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="House Bank">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Terms of Payment">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Reference">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="Payee in Document">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Block Supplieer">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                        </f:Form>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection titleUppercase="false" title="Grantor Information">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <f:Form width="100%">
+                            <f:layout>
+                                <f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+                            </f:layout>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="Grant Type">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Validity From">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Sales Organisation">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="Distribution Channel">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Division">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                            <f:formContainers>
+                                <f:FormContainer >
+                                    <f:formElements>
+                                        <f:FormElement label="Customer Pricing Procedure">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Billing Currency">
+                                            <f:fields>
+                                                <Text text="2096 Mission Street"/>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer >
+                            </f:formContainers>
+                        </f:Form>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection title="Customer Information" titleUppercase="false">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <f:SimpleForm editable="false" layout="ColumnLayout" 
+                            columnsXL="4"
+                            columnsL="3"
+                            columnsM="2">
+                            <f:content>
+                                <core:Title ></core:Title>
+                                <Label text="Recocilitation Amount" />
+                                <Text text="{Name}" />
+                                <Label text="Sort Key" />
+                                <Text text="{Name}" />
+                                <Label text="Payment Method" />
+                                <Text text="{Category}" />
+                                <Label text="Terms of Payment" />
+                                <Text text="{Price}" />
+                                <core:Title ></core:Title>
+                                <Label text="Dunning Area" />
+                                <Text text="{Name}" />
+                                <Label text="Dunning Procedure" />
+                                <Text text="{Name}" />
+                                <Label text="Dunning Block" />
+                                <Text text="{Category}" />
+                                <Label text="Credit Segment" />
+                                <Text text="{Price}" />
+                                <core:Title ></core:Title>
+                                <Label text="Risk Class" />
+                                <Text text="{Name}" />
+                                <Label text="Rule" />
+                                <Text text="{Name}" />
+                                <Label text="" />
+                                <Text text="{Name}" />
+                                <Label text="Credit Limit" />
+                                <Text text="{Category}" />
+                                <Label text="Block Customer" />
+                                <Text text="{Price}" />
+                            </f:content>
+                    </f:SimpleForm>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection titleUppercase="false" title="Addresses">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <Table id="idProductsTable"
+                            inset="false"
+                            mode="MultiSelect"
+                            items="{
+                                path: '/ProductCollection'
+                            }">
+                            
+                            <columns>
+                                <Column >
+                                    <Text text="BP Group" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="BP Type" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Title" />
+                                </Column>
+                                 <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Name" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Name 2" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Tax Number" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Search Term 2" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <Text text="{ProductId}"/>
+                                        <Text text="{SupplierName}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection titleUppercase="false" title="Payment Information">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <Table 
+                            inset="false"
+                            mode="MultiSelect"
+                            items="{
+                                path: '/ProductCollection'
+                            }">
+                            <columns>
+                                <Column width="12em">
+                                    <Text text="Country/Region" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Bank Number" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Bank Account" />
+                                </Column>
+                                 <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="Account Holder" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="IBAN" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="Reference Details" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="Part Bank Type" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <Text text="{ProductId}"/>
+                                        <Text text="{SupplierName}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                        <Text text="{Width}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+</core:FragmentDefinition>
