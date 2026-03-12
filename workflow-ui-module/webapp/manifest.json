@@ -23,8 +23,8 @@
           "annotations": [
             "annotation0"
           ],
-          "localUri": "localService/zui_bpct_n_o4/metadata.xml",
-          "odataVersion": "2.0"
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
         }
       },
       "annotation0": {
@@ -202,9 +202,7 @@
       "$schema": "http://json-schema.org/draft-07/schema",
       "title": "output",
       "type": "object",
-      "required": [
-        "comment"
-      ],
+      "required": [],
       "properties": {
         "comment": {
           "type": "string",

@@ -28,21 +28,24 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Zbttyp"/>
                         </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NameFirst"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Searchterm1"/>
+                        </Record>
                     </Collection>
                 </Annotation>
                 <Annotation Term="UI.HeaderFacets">
-                    <Collection>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="Header"/>
-                            <PropertyValue Property="ID" String="Test"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Test"/>
-                        </Record>
-                    </Collection>
+                    <Collection></Collection>
                 </Annotation>
                 <Annotation Term="UI.FieldGroup" Qualifier="Test">
                     <Record Type="UI.FieldGroupType">
                         <PropertyValue Property="Data">
                             <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Zbtprn"/>
+                                </Record>
 
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="Zbrtyp"/>
@@ -58,6 +61,9 @@
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="CreatedBy"/>
                                 </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Status"/>
+                                </Record>
 </Collection>
                         </PropertyValue>
                     </Record>
@@ -67,12 +73,16 @@
                         <PropertyValue Property="Data">
                             <Collection>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Label" String="Zbtprn"/>
+                                    <PropertyValue Property="Label" String="BTP Request No"/>
                                     <PropertyValue Property="Value" Path="Zbtprn"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Label" String="Gjahr"/>
+                                    <PropertyValue Property="Label" String="Fiscal Year"/>
                                     <PropertyValue Property="Value" Path="Gjahr"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Bttyp"/>
+                                    <PropertyValue Property="Label" String="BTP Type"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="Zbrtyp"/>
@@ -95,6 +105,12 @@
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="NameLast"/>
                                 </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Bugroup"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Bukrs"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
@@ -102,12 +118,27 @@
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Header"/>
+                            <PropertyValue Property="ID" String="Test"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Test"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Label" String="General Information"/>
                             <PropertyValue Property="ID" String="GeneralInfo"/>
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#General"/>
                         </Record>
                         <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="FI Support Role"/>
+                            <PropertyValue Property="Label" String="Addresses"/>
+                            <PropertyValue Property="ID" String="AddressInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Address/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Payment Information"/>
+                            <PropertyValue Property="ID" String="PaymentInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="_PaymentInfo/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="FI Supplier"/>
                             <PropertyValue Property="ID" String="FISupportRole"/>
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FISupportRole"/>
                         </Record>
@@ -121,16 +152,6 @@
                             <PropertyValue Property="ID" String="CustomerInformation"/>
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#CustomerInformation"/>
                         </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="Addresses"/>
-                            <PropertyValue Property="ID" String="AddressInfo"/>
-                            <PropertyValue Property="Target" AnnotationPath="_Address/@UI.LineItem"/>
-                        </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="Payment Information"/>
-                            <PropertyValue Property="ID" String="PaymentInfo"/>
-                            <PropertyValue Property="Target" AnnotationPath="_PaymentInfo/@UI.LineItem"/>
-                        </Record>
                     </Collection>
                 </Annotation>
                 <Annotation Term="Common.SideEffects" Qualifier="REPLACE_WITH_QUALIFIER">
@@ -143,6 +164,64 @@
                         <PropertyValue Property="SourceProperties">
                             <Collection>
                                 <PropertyPath>_Address/__EntityControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Partner</PropertyPath>
+                        <PropertyPath>NameFirst</PropertyPath>
+                        <PropertyPath>Searchterm1</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="CustomerInformation">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Reconcilitation Account"/>
+                                    <PropertyValue Property="Value" Path="reconciliationAccountCust"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="sortKeyCust"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="paymentMethodCust"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Terms of Payment"/>
+                                    <PropertyValue Property="Value" Path="paymentTermsCust"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="dunningArea"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="dunningProcedure"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="dunningBlock"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="creditSegment"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="riskClass"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="rules"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="checkRule"/>
+                                    <PropertyValue Property="Label" String="Check Rule"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="creditLimit"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Block Customer"/>
+                                    <PropertyValue Property="Value" Path="blockCustomer"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
@@ -224,105 +303,40 @@
                 <Annotation Term="Common.Text" Path="PoBox">
                     <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
                 </Annotation>
-                <Annotation Term="Common.ValueList">
-                    <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="I_BusinessPartnerAddress"/>
-                        <PropertyValue Property="Parameters">
-                            <Collection>
-                                <Record Type="Common.ValueListParameterInOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PostalCode"/>
-                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="Label" String="Postal Code"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
             </Annotations>
             <Annotations Target="SAP__self.I_BusinessPartnerAddressType/BusinessPartner">
                 <Annotation Term="Common.Text" Path="CorrespondenceLanguage">
                     <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
                 </Annotation>
             </Annotations>
-            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/PoBox">
-                <Annotation Term="UI.MultiLineText" Bool="false"/>
-                <Annotation Term="Common.ValueList">
-                    <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="I_BusinessPartnerAddress"/>
-                        <PropertyValue Property="Parameters">
-                            <Collection>
-                                <Record Type="Common.ValueListParameterInOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PoBox"/>
-                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="Label" String="PO Box"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
-            </Annotations>
-            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Region">
-                <Annotation Term="Common.ValueList">
-                    <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="I_BusinessPartnerAddress"/>
-                        <PropertyValue Property="Parameters">
-                            <Collection>
-                                <Record Type="Common.ValueListParameterInOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Region"/>
-                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="Label" String="Region"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
-            </Annotations>
-            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/City">
-                <Annotation Term="Common.ValueList">
-                    <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="I_BusinessPartnerAddress"/>
-                        <PropertyValue Property="Parameters">
-                            <Collection>
-                                <Record Type="Common.ValueListParameterInOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="City"/>
-                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="Label" String="City"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
-            </Annotations>
             <Annotations Target="SAP__self.ZI_BP_ADDRESSType/CountryCode">
+                
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="I_BusinessPartnerAddress"/>
+                        <PropertyValue Property="CollectionPath" String="I_Country"/>
                         <PropertyValue Property="Parameters">
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="CountryCode"/>
-                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="Label" String="Country"/>
                     </Record>
                 </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
             <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Language">
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="I_BusinessPartnerAddress"/>
+                        <PropertyValue Property="CollectionPath" String="C_BPLanguageValueHelp"/>
                         <PropertyValue Property="Parameters">
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="Language"/>
-                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
+                                    <PropertyValue Property="ValueListProperty" String="Language"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -330,6 +344,7 @@
                     </Record>
                 </Annotation>
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
             <Annotations Target="SAP__self.I_BusinessPartnerBankType/BusinessPartner">
                 <Annotation Term="Common.Text" Path="BankAccountName">
@@ -337,23 +352,7 @@
                 </Annotation>
             </Annotations>
            
-            <Annotations Target="SAP__self.ZI_BP_Payment_infoType/BankAccount">
-                <Annotation Term="Common.ValueList">
-                    <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="I_BusinessPartnerBank"/>
-                        <PropertyValue Property="Parameters">
-                            <Collection>
-                                <Record Type="Common.ValueListParameterInOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BankAccount"/>
-                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="Label" String="Bank Account"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
-            </Annotations>
+            
             <Annotations Target="SAP__self.I_BankType/BankInternalID">
                 <Annotation Term="Common.Text" Path="BankName">
                     <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
@@ -369,12 +368,17 @@
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="BankKey"/>
                                     <PropertyValue Property="ValueListProperty" String="BankInternalID"/>
                                 </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="BankCountry"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryKey"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="Label" String="Bank Name"/>
                     </Record>
                 </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
             <Annotations Target="SAP__self.I_BankType/BankName">
                 <Annotation Term="Common.Text" Path="BankInternalID">
@@ -435,22 +439,29 @@
             <Annotations Target="SAP__self.ZR_BPCT_NType/distributionChannel">
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
-                        <PropertyValue Property="CollectionPath" String="ZI_BP_DIST_VH"/>
+                        <PropertyValue Property="CollectionPath" String="I_SlsOrganizationDistrChnl"/>
                         <PropertyValue Property="Parameters">
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="distributionChannel"/>
-                                    <PropertyValue Property="ValueListProperty" String="Vtweg"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterIn">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="salesOrg"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="Label" String="Distribution Channel"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="vh_ZR_BPCT_NType_distributionChannel"/>
                     </Record>
                 </Annotation>
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
             </Annotations>
             <Annotations Target="SAP__self.ZI_BP_DIST_VHType/Vtweg">
-                <Annotation Term="Common.Text" Path="Vtext"/>
+                <Annotation Term="Common.Text" Path="Vtext">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
             </Annotations>
             <Annotations Target="SAP__self.ZR_BPCT_NType/Partner">
                 <Annotation Term="Common.ValueList">
@@ -467,7 +478,811 @@
                         <PropertyValue Property="Label" String="Business Partner"/>
                     </Record>
                 </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZR_BPCT_N">
+                <Annotation Term="UI.UpdateHidden" Bool="true"/>
+                <Annotation Term="UI.DeleteHidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZVH_BP_REQUEST_TYPEType/BPTypeText">
+                <Annotation Term="Common.Text" Path="BPType">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextLast"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_Salesorg_vhType/Vkorg">
+                <Annotation Term="Common.Text" Path="Vtext">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/division">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_BP_DIST_VH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Vtweg"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Division"/>
+                    </Record>
+                </Annotation>
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/customerPricingProcedure">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="C_CustomerPriceProcedureVHTemp"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="customerPricingProcedure"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPricingProcedure"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Customer Pricing Procedure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_pricepro_VHType/Kalks">
+                <Annotation Term="Common.Text" Path="Vtext"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/paymentTerms">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_PaymentTermsText"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="paymentTerms"/>
+                                    <PropertyValue Property="ValueListProperty" String="PaymentTerms"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Terms of Payment"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_Pymt_terms_VHType/Zterm">
+                <Annotation Term="Common.Text" Path="Text1">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/paymentTermsCust">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_PaymentTermsText"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="paymentTermsCust"/>
+                                    <PropertyValue Property="ValueListProperty" String="PaymentTerms"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Terms of Payment"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/dunningArea">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_DunningAreaStdVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="dunningArea"/>
+                                    <PropertyValue Property="ValueListProperty" String="DunningArea"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Dunning Area"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_DUNNING_AR_VHType/Maber">
+                <Annotation Term="Common.Text" Path="Text1">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/dunningProcedure">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_DunningProcedureVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="dunningProcedure"/>
+                                    <PropertyValue Property="ValueListProperty" String="DunningProcedure"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Dunning Procedure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_DUNNING_PRO_VHType/Mahna">
+                <Annotation Term="Common.Text" Path="Textm">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/salesOrg">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_SalesOrganization"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="salesOrg"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Sales Organization"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.fac_ad_cds_t005Type/land1">
+                <Annotation Term="Common.Text" Path="kalsm">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_CountryType/Country">
+                <Annotation Term="Common.Text" Path="Country_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_Payment_infoType/CountryKey">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_Country"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryKey"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Country/Region"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/Bttyp">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_ZTBP_BPTYPE"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bttyp"/>
+                                    <PropertyValue Property="ValueListProperty" String="BTTYP"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="BTP Type"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_ZTBP_BPTYPEType/BTTYP">
+                <Annotation Term="Common.Text" Path="BTTYPD">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/BpGroup">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_BPAccountGroupToGrouping"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BpGroup"/>
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartnerGrouping"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="BP Group"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/BpType">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_BP_BU_TYPE_VH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BpType"/>
+                                    <PropertyValue Property="ValueListProperty" String="BTTYP"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="BP Type"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_BU_TYPE_VHType/BTTYP">
+                <Annotation Term="Common.Text" Path="BTTYPD">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PaymentMethodType/PaymentMethod">
+                <Annotation Term="Common.Text" Path="PaymentMethodName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/paymentMethod">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_PaymentMethod"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="paymentMethod"/>
+                                    <PropertyValue Property="ValueListProperty" String="PaymentMethod"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Payment Method"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Title">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_ContactPersonTitleText"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Title"/>
+                                    <PropertyValue Property="ValueListProperty" String="MstrProjCustomerContactTitle"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Title"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ContactPersonTitleTextType/MstrProjCustomerContactTitle">
+                <Annotation Term="Common.Text" Path="MstrProjCustContactTitleName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PaymentTermsTextType/PaymentTerms">
+                <Annotation Term="Common.Text" Path="PaymentTermsName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_ReconAccountVHTempType/ReconciliationAccount">
+                <Annotation Term="Common.Text" Path="ReconciliationAccount_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/reconciliationAccount">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZC_ReconAccountVHSupplier"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="reconciliationAccount"/>
+                                    <PropertyValue Property="ValueListProperty" String="Saknr"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Bukrs"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bukrs"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Reconcilitaion Account"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/houseBank">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="C_House_Bank_App"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="houseBank"/>
+                                    <PropertyValue Property="ValueListProperty" String="HouseBank"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="House bank"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_House_Bank_AppType/HouseBank">
+                <Annotation Term="Common.Text" Path="BankName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_AcctgDocItmDspSqncRuleType/AcctgDocItmDisplaySequenceRule">
+                <Annotation Term="Common.Text" Path="AcctgDocItmDisplaySequenceRule_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/sortKey">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_AcctgDocItmDspSqncRule"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="sortKey"/>
+                                    <PropertyValue Property="ValueListProperty" String="AcctgDocItmDisplaySequenceRule"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Sort Key"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/grantType">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_BP_GMSPAGT_VH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="grantType"/>
+                                    <PropertyValue Property="ValueListProperty" String="GrantType"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Grant Type"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_GMSPAGT_VHType/GrantType">
+                <Annotation Term="Common.Text" Path="Description">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_SalesOrganizationType/SalesOrganization">
+                <Annotation Term="Common.Text" Path="SalesOrganization_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_CustomerPriceProcedureVHTempType/CustomerPricingProcedure">
+                <Annotation Term="Common.Text" Path="CustomerPricingProcedure_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/sortKeyCust">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_AcctgDocItmDspSqncRule"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="sortKeyCust"/>
+                                    <PropertyValue Property="ValueListProperty" String="AcctgDocItmDisplaySequenceRule"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Sort Key"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/paymentMethodCust">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_PaymentMethod"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="paymentMethodCust"/>
+                                    <PropertyValue Property="ValueListProperty" String="PaymentMethod"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Payment Method"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/reconciliationAccountCust">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZC_ReconAccountVHCustomer"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="reconciliationAccountCust"/>
+                                    <PropertyValue Property="ValueListProperty" String="Saknr"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Bukrs"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bukrs"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Reconcilitaion Account"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DunningAreaStdVHType/CompanyCode">
+                <Annotation Term="Common.Text" Path="DunningArea">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DunningProcedureVHType/DunningProcedure">
+                <Annotation Term="Common.Text" Path="DunningProcedure_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_CreditRiskClassType/CreditRiskClass">
+                <Annotation Term="Common.Text" Path="CreditRiskClass_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/riskClass">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_CreditRiskClass"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="riskClass"/>
+                                    <PropertyValue Property="ValueListProperty" String="CreditRiskClass"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Risk Class"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_CrdtMSegmentVHType/CreditSegment">
+                <Annotation Term="Common.Text" Path="CreditSegment_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/creditSegment">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_CrdtMSegmentVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="creditSegment"/>
+                                    <PropertyValue Property="ValueListProperty" String="CreditSegment"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Credit Segment"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PaymentTermsTextType/Language">
+                <Annotation Term="Common.Text" Path="PaymentTerms">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_SlsOrganizationDistrChnlType">
+                <Annotation Term="UI.PresentationVariant" Qualifier="vh_ZR_BPCT_NType_distributionChannel">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_SlsOrganizationDistrChnlType/DistributionChannel">
+                <Annotation Term="Common.Text" Path="ReferenceDistributionChannel">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Name">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Name2">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/TaxRegistrationNumber">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Street1">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Region">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType/Telephone">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/duplicateInvoiceCheck">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/Bugroup">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_GROUPING_VH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bugroup"/>
+                                    <PropertyValue Property="ValueListProperty" String="BuGroup"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="BP Group"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_BP_ADDRESSType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Zbtprn"/>
+                            <PropertyValue Property="Value" Path="Zbtprn"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Addguid"/>
+                            <PropertyValue Property="Value" Path="Addguid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Year"/>
+                            <PropertyValue Property="Value" Path="Gjahr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Title"/>
+                            <PropertyValue Property="Value" Path="Title"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Name"/>
+                            <PropertyValue Property="Value" Path="Name"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Name 2"/>
+                            <PropertyValue Property="Value" Path="Name2"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Tax Number"/>
+                            <PropertyValue Property="Value" Path="TaxRegistrationNumber"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Search Term 2"/>
+                            <PropertyValue Property="Value" Path="SearchTerm2"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Street"/>
+                            <PropertyValue Property="Value" Path="Street1"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="House Number"/>
+                            <PropertyValue Property="Value" Path="HouseNumber"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Postal Code"/>
+                            <PropertyValue Property="Value" Path="PostalCode"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Region"/>
+                            <PropertyValue Property="Value" Path="Region"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="City"/>
+                            <PropertyValue Property="Value" Path="City"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Country"/>
+                            <PropertyValue Property="Value" Path="CountryCode"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Language"/>
+                            <PropertyValue Property="Value" Path="Language"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Telephone"/>
+                            <PropertyValue Property="Value" Path="Telephone"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Mobile"/>
+                            <PropertyValue Property="Value" Path="Mobile"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Email"/>
+                            <PropertyValue Property="Value" Path="Email"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="PO Box"/>
+                            <PropertyValue Property="Value" Path="PoBox"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_CompanyCodeType/CompanyCode">
+                <Annotation Term="Common.Text" Path="CompanyCodeName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/Bukrs">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_CompanyCode"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bukrs"/>
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Company Code"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_CurrencyType/Currency">
+                <Annotation Term="Common.Text" Path="Currency_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/billingCurrency">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_Currency"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="billingCurrency"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Billing Currency"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_CreditCheckRuleType/CreditCheckRule">
+                <Annotation Term="Common.Text" Path="CreditCheckRule_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/checkRule">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="I_CreditCheckRule"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="checkRule"/>
+                                    <PropertyValue Property="ValueListProperty" String="CreditCheckRule"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Check Rule"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_BPAccountGroupToGroupingType/BusinessPartnerGrouping">
+                <Annotation Term="Common.Text" Path="SupplierAccountGroup">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_GROUPING_VHType/BuGroup">
+                <Annotation Term="Common.Text" Path="Txt15">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/dunningBlock">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_DUNNINHG_BLOCK_VH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="dunningBlock"/>
+                                    <PropertyValue Property="ValueListProperty" String="Mansp"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Dunning Block"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_DUNNINHG_BLOCK_VHType/Mansp">
+                <Annotation Term="Common.Text" Path="Text1">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/rules">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_UKM_LIMIT_RULES_VH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="rules"/>
+                                    <PropertyValue Property="ValueListProperty" String="LimitRule"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Rule"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_UKM_LIMIT_RULES_VHType/LimitRule">
+                <Annotation Term="Common.Text" Path="Text50">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZR_BPCT_NType/alternatePayee">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="C_Alternativepayeevhtemp"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="alternatePayee"/>
+                                    <PropertyValue Property="ValueListProperty" String="AlternativePayee"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bukrs"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Alternate Payee"/>
+                    </Record>
+                </Annotation>
+                
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_AlternativepayeevhtempType/AlternativePayee">
+                <Annotation Term="Common.Text" Path="SupplierName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                </Annotation>
             </Annotations>
         </Schema>
     </edmx:DataServices>

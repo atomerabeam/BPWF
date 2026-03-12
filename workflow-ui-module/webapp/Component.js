@@ -3,8 +3,10 @@ sap.ui.define(
     "sap/ui/core/UIComponent",
     "sap/ui/Device",
     "workflowuimodule/model/models",
+    "sap/ui/model/json/JSONModel",
+      "sap/m/MessageBox",
   ],
-  function (UIComponent, Device, models) {
+  function (UIComponent, Device, models,JSONModel,MessageBox) {
     "use strict";
 
     return UIComponent.extend(
@@ -29,31 +31,31 @@ sap.ui.define(
           // set the device model
           this.setModel(models.createDeviceModel(), "device");
 
-          // this.setTaskModels();
+          this.setTaskModels();
 
-          // this.getInboxAPI().addAction(
-          //   {
-          //     action: "APPROVE",
-          //     label: "Approve",
-          //     type: "accept", // (Optional property) Define for positive appearance
-          //   },
-          //   function () {
-          //     this.completeTask(true);
-          //   },
-          //   this
-          // );
+          this.getInboxAPI().addAction(
+            {
+              action: "APPROVE",
+              label: "Approve",
+              type: "accept", // (Optional property) Define for positive appearance
+            },
+            function () {
+              this.completeTask(true);
+            },
+            this
+          );
 
-          // this.getInboxAPI().addAction(
-          //   {
-          //     action: "REJECT",
-          //     label: "Reject",
-          //     type: "reject", // (Optional property) Define for negative appearance
-          //   },
-          //   function () {
-          //     this.completeTask(false);
-          //   },
-          //   this
-          // );
+          this.getInboxAPI().addAction(
+            {
+              action: "REJECT",
+              label: "Reject",
+              type: "reject", // (Optional property) Define for negative appearance
+            },
+            function () {
+              this.completeTask(false);
+            },
+            this
+          );
         },
 
         setTaskModels: function () {
@@ -95,14 +97,54 @@ sap.ui.define(
 
         completeTask: function (approvalStatus) {
           this.getModel("context").setProperty("/approved", approvalStatus);
-          this._patchTaskInstance();
+          this._patchTaskInstance(approvalStatus);
           this._refreshTaskList();
         },
 
-        _patchTaskInstance: function () {
+        async  _approveRequest(){
+            var that = this;
+        return await new Promise(async (resolve, reject) => {
+          let oModel = this.getModel("ZBP_WF_SRV");
+          var sServiceUrl = oModel.sServiceUrl;
+
+          var data = this.getModel("context").getData();
+          const sFilter = JSON.stringify({
+            "GJAHR" : data?.Gjahr,
+            "ACTION" : "Approve",
+            "ZBTPRN" : data?.BTPRequestID,
+            "REQUEST": "ONACTION"
+          });
+
+            var sUrl = sServiceUrl + "/EntitySet('" + encodeURIComponent(sFilter) + "')";
+          try {
+            const oResponse = await $.ajax({
+              url: sUrl,
+              method: "GET",
+              headers: {
+                "Accept": "application/json"
+              }
+            });
+            var data = JSON.parse(oResponse?.d?.Output)            
+            resolve(data);
+
+          } catch (error) {
+            console.error("Error occured on ONACTION:", error);
+          }
+        })
+        },
+
+        _patchTaskInstance: async function (approvalStatus) {
+          if (approvalStatus){
+        var result =   await  this._approveRequest();
+          }
+
+
+        if(result == 'Successfull'){
+        const  context = this.getModel("context").getData();
           var data = {
             status: "COMPLETED",
-            context: this.getModel("context").getData(),
+            context: {...context, comment:'' },
+            decision: approvalStatus ? 'approve' : 'reject' 
           };
 
           jQuery.ajax({
@@ -112,12 +154,16 @@ sap.ui.define(
             async: false,
             data: JSON.stringify(data),
             headers: {
-              "X-CSRF-Token": this._fetchToken(),
+              "X-CSRF-Token": await this._fetchToken(),
             },
           });
+        }else{
+
+          MessageBox.error('Failed');
+        }
         },
 
-        _fetchToken: function () {
+        _fetchToken:  function () {
           var fetchedToken;
 
           jQuery.ajax({
@@ -134,6 +180,7 @@ sap.ui.define(
           return fetchedToken;
         },
 
+        
         _refreshTaskList: function () {
           this.getInboxAPI().updateTask("NA", this.getTaskInstanceID());
         },

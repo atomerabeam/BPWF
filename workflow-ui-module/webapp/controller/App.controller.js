@@ -1,16 +1,21 @@
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/format/DateFormat"
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+    "sap/m/MessageBox",
+    "sap/ui/core/Fragment"
   ],
-  function (BaseController, DateFormat) {
+  function (BaseController, JSONModel, Filter, FilterOperator, MessageBox, Fragment) {
     "use strict";
 
     return BaseController.extend("workflowuimodule.controller.App", {
-     async onInit() {
-        // this.getAssetDetails("0000200224");  
+
+
+      async onInit() {
         this.getUserInfo();
-      await  this.getBPDetails("50", "0000")
+        // await  this.getBPDetails("50", "0000")
       },
 
       onAfterRendering: function () {
@@ -30,63 +35,64 @@ sap.ui.define(
       getBPDetails: async function (oId, oYear) {
         debugger;
         var that = this;
-        return await new Promise((resolve, reject) => {
-          let oModel = this.getView().getModel("ZBP_WF_SRV");
+        return await new Promise(async (resolve, reject) => {
+          let oModel = this.getOwnerComponent().getModel("ZBP_WF_SRV");
           var sServiceUrl = oModel.sServiceUrl;
 
           const sFilter = JSON.stringify({
-
-            INPUT: JSON.stringify({
-              REQUEST: 'GETDETAILS',
-              ZBTPRN: oId,
-              GJAHR: oYear
-            })
+            REQUEST: 'GETDETAILS',
+            ZBTPRN: oId,
+            GJAHR: oYear
           });
 
-          var sUrl = "/ZSBP_WFSet('" + encodeURIComponent(sFilter) + "')";
-          try {
-            oModel.read(sUrl, {
-              success: function (oData, response) {
+          var sUrl = sServiceUrl + "/EntitySet('" + encodeURIComponent(sFilter) + "')";
 
-                var data = JSON.parse(oData.Output)
-                console.log("Read success:", data);
-                resolve("Done");
-                this.getView().setBusy(false);
-              }.bind(this),
-              error: function (oError) {
-                // this.byId("idPaymentWFList").setBusy(false);
-                console.error("Read error:", oError);
-              }.bind(this)
+
+
+          try {
+            const oResponse = await $.ajax({
+              url: sUrl,
+              method: "GET",
+              headers: {
+                "Accept": "application/json"
+              }
             });
-          } catch (e) {
-            console.log(e)
-            resolve("failed")
+            var data = JSON.parse(oResponse?.d?.Output)
+            console.log("Read success:", data);
+            this.getView().setModel(new JSONModel(data[0]), "oBPDetailsModel");
+            resolve("Done");
+
+          } catch (error) {
+            console.error("Error in getAssetDetails:", error);
           }
         })
-
-
-
-        // try {
-        //     const oResponse = await $.ajax({
-        //         url: sUrl,
-        //         method: "GET",
-        //         headers: {
-        //             "Accept": "application/json"
-        //         }
-        //     });
-        //     console.log("Header:", oResponse); 
-        //     this.getOwnerComponent().getModel("listOfSelectedAssetsModel").setData(oResponse);      
-        //     console.log(this.getOwnerComponent().getModel("listOfSelectedAssetsModel").getData()) ;
-
-        // } catch (error) {
-        //     console.error("Error in getAssetDetails:", error);
-        // }
       },
+      //   try {
+      //     oModel.read(sUrl, {
+      //       success: function (oData, response) {
+
+      //         var data = JSON.parse(oData.Output)
+      //         console.log("Read success:", data);
+      //         this.getView().setModel(new JSONModel(data[0]), "oBPDetailsModel");
+      //         resolve("Done");
+      //         this.getView().setBusy(false);
+      //       }.bind(this),
+      //       error: function (oError) {
+      //         // this.byId("idPaymentWFList").setBusy(false);
+      //         console.error("Read error:", oError);
+      //       }.bind(this)
+      //     });
+      //   } catch (e) {
+      //     console.log(e)
+      //     resolve("failed")
+      //   }
+      // })
+
 
       // This function fetches the logged-in user's information
       getUserInfo: async function () {
         const url = this.getBaseURL() + "/user-api/currentUser";
-        const oModel = this.getView().getModel("currentUser");
+        const oModel = this.getOwnerComponent().getModel("currentUser");
         const mock = {
           firstname: "Dummy",
           lastname: "User",
@@ -143,6 +149,4 @@ sap.ui.define(
 
 
     });
-  }
-);
-
+  });

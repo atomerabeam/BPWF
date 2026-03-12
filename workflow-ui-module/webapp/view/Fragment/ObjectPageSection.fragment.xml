@@ -15,12 +15,12 @@
                                     <f:formElements>
                                         <f:FormElement label="BP Request Type">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/ZBTPRN}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="BP Type">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/ZBTTYP}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -31,12 +31,12 @@
                                     <f:formElements>
                                         <f:FormElement label="Business Partner">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/PARTNER}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Blocked?">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/BUSINESSPARTNERISBLOCKED}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -47,12 +47,12 @@
                                     <f:formElements>
                                         <f:FormElement label="First name">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/NAME_FIRST}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Last Name">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/NAME_LAST}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -75,17 +75,17 @@
                                     <f:formElements>
                                         <f:FormElement label="Reconcilitation Amount">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/RECONCILIATION_ACCOUNT}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Sort Key">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/SORT_KEY}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Payment Method">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/PAYMENT_METHOD}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -96,17 +96,17 @@
                                     <f:formElements>
                                         <f:FormElement label="House Bank">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/HOUSE_BANK}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Terms of Payment">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/PAYMENT_TERMS}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Reference">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/DUPLICATE_INVOICE_CHECK}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -117,12 +117,12 @@
                                     <f:formElements>
                                         <f:FormElement label="Payee in Document">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/ALTERNATE_PAYEE}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Block Supplieer">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/BUSINESSPARTNERISBLOCKED}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -145,17 +145,17 @@
                                     <f:formElements>
                                         <f:FormElement label="Grant Type">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/GRANT_TYPE}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Validity From">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/VALIDITY_FROM}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Sales Organisation">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/SALES_ORG}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -166,12 +166,12 @@
                                     <f:formElements>
                                         <f:FormElement label="Distribution Channel">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/DISTRIBUTION_CHANNEL}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Division">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/DIVISION}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -182,12 +182,12 @@
                                     <f:formElements>
                                         <f:FormElement label="Customer Pricing Procedure">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/CUSTOMER_PRICING_PROCEDURE}"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="Billing Currency">
                                             <f:fields>
-                                                <Text text="2096 Mission Street"/>
+                                                <Text text="{oBPDetailsModel>/ZBPCT/BILLING_CURRENCY}"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>
@@ -208,33 +208,33 @@
                             <f:content>
                                 <core:Title ></core:Title>
                                 <Label text="Recocilitation Amount" />
-                                <Text text="{Name}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/RECONCILIATION_ACCOUNT_CUST}" />
                                 <Label text="Sort Key" />
-                                <Text text="{Name}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/SORT_KEY}" />
                                 <Label text="Payment Method" />
-                                <Text text="{Category}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/PAYMENT_METHOD}" />
                                 <Label text="Terms of Payment" />
-                                <Text text="{Price}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/PAYMENT_TERMS_CUST}" />
                                 <core:Title ></core:Title>
                                 <Label text="Dunning Area" />
-                                <Text text="{Name}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/DUNNING_AREA}" />
                                 <Label text="Dunning Procedure" />
-                                <Text text="{Name}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/DUNNING_PROCEDURE}" />
                                 <Label text="Dunning Block" />
-                                <Text text="{Category}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/DUNNING_BLOCK}" />
                                 <Label text="Credit Segment" />
-                                <Text text="{Price}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/CREDIT_SEGMENT}" />
                                 <core:Title ></core:Title>
                                 <Label text="Risk Class" />
-                                <Text text="{Name}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/RISK_CLASS}" />
                                 <Label text="Rule" />
-                                <Text text="{Name}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/RULES}" />
                                 <Label text="" />
-                                <Text text="{Name}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/Name}" />
                                 <Label text="Credit Limit" />
-                                <Text text="{Category}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/CREDIT_LIMIT}" />
                                 <Label text="Block Customer" />
-                                <Text text="{Price}" />
+                                <Text text="{oBPDetailsModel>/ZBPCT/BLOCK_CUSTOMER}" />
                             </f:content>
                     </f:SimpleForm>
                     </uxap:ObjectPageSubSection>
@@ -244,20 +244,12 @@
             <uxap:ObjectPageSection titleUppercase="false" title="Addresses">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection >
-                        <Table id="idProductsTable"
+                        <Table id="idAddress"
                             inset="false"
                             mode="MultiSelect"
-                            items="{
-                                path: '/ProductCollection'
-                            }">
+                            items="{oBPDetailsModel>/ADDRESS}">
                             
                             <columns>
-                                <Column >
-                                    <Text text="BP Group" />
-                                </Column>
-                                <Column minScreenWidth="Tablet" demandPopin="true">
-                                    <Text text="BP Type" />
-                                </Column>
                                 <Column minScreenWidth="Tablet" demandPopin="true">
                                     <Text text="Title" />
                                 </Column>
@@ -273,17 +265,58 @@
                                 <Column minScreenWidth="Tablet" demandPopin="true">
                                     <Text text="Search Term 2" />
                                 </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Street" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="House Number" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Postal Code" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Region" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="City" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Country" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Language" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Telephone" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Mobile" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Email" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="PO Box" />
+                                </Column>
                             </columns>
                             <items>
                                 <ColumnListItem vAlign="Middle">
                                     <cells>
-                                        <Text text="{ProductId}"/>
-                                        <Text text="{SupplierName}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
+                                        <Text text="{oBPDetailsModel>TITLE}"/>
+                                        <Text text="{oBPDetailsModel>NAME}"/>
+                                        <Text text="{oBPDetailsModel>NAME_2}" />
+                                        <Text text="{oBPDetailsModel>TAX_REGISTRATION_NUMBER}" />
+                                        <Text text="{oBPDetailsModel>SEARCH_TERM_2}" />
+                                        <Text text="{oBPDetailsModel>STREET1}" />
+                                        <Text text="{oBPDetailsModel>HOUSE_NUMBER}" />
+                                        <Text text="{oBPDetailsModel>POSTAL_CODE}" />
+                                        <Text text="{oBPDetailsModel>CITY}" />
+                                        <Text text="{oBPDetailsModel>COUNTRY_CODE}" />
+                                        <Text text="{oBPDetailsModel>LANGUAGE}" />
+                                        <Text text="{oBPDetailsModel>TELEPHONE}" />
+                                        <Text text="{oBPDetailsModel>MOBILE}" />
+                                        <Text text="{oBPDetailsModel>EMAIL}" />
+                                        <Text text="{oBPDetailsModel>PO_BOX}" />
                                     </cells>
                                 </ColumnListItem>
                             </items>
@@ -297,9 +330,7 @@
                         <Table 
                             inset="false"
                             mode="MultiSelect"
-                            items="{
-                                path: '/ProductCollection'
-                            }">
+                            items="{oBPDetailsModel>/PAYMENT}">
                             <columns>
                                 <Column width="12em">
                                     <Text text="Country/Region" />
@@ -322,17 +353,33 @@
                                 <Column minScreenWidth="Tablet" demandPopin="true" >
                                     <Text text="Part Bank Type" />
                                 </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="Bank Identifier" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="Document Currency" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="Interm Bank Name" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" >
+                                    <Text text="SWIFT/BIC" />
+                                </Column>
                             </columns>
                             <items>
                                 <ColumnListItem vAlign="Middle">
                                     <cells>
-                                        <Text text="{ProductId}"/>
-                                        <Text text="{SupplierName}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
-                                        <Text text="{Width}" />
+                                        <Text text="{oBPDetailsModel>COUNTRY_KEY}"/>
+                                        <Text text="{oBPDetailsModel>BANK_KEY}" />
+                                        <Text text="{oBPDetailsModel>BANK_ACCOUNT}" />
+                                        <Text text="{oBPDetailsModel>HOLDER_NAME}" />
+                                        <Text text="{oBPDetailsModel>IBAN}" />
+                                        <Text text="{oBPDetailsModel>REFERENCE_DETAIL}" />
+                                        <Text text="{oBPDetailsModel>BANK_TYPE}" />
+                                        <Text text="{oBPDetailsModel>BANK_IDENTIFIER}" />
+                                        <Text text="{oBPDetailsModel>CURRENCY}" />
+                                        <Text text="{oBPDetailsModel>INTERMEDIARY_BANK_NAME}" />
+                                        <Text text="{oBPDetailsModel>SWIFT_CODE}" />
                                     </cells>
                                 </ColumnListItem>
                             </items>

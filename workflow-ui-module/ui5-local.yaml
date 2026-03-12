@@ -31,7 +31,8 @@ server:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
           - path: /sap
-            url: http://localhost
+            url: http://ds4.sap.smu.edu.sg:44300
+            destination: DS4_110_BAS
           - url: http://ds4.sap.smu.edu.sg:44300
             client: '110'
             authenticationType: BasicAuthentication
@@ -53,7 +54,7 @@ server:
         mountPath: /
         services:
           - urlPath: /sap/opu/odata4/sap/zui_bpct_n_o4/srvd/sap/zui_bpct_n_o4/0001
-            metadataPath: ./webapp/localService/zui_bpct_n_o4/metadata.xml
+            metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
           - urlPath: /sap/opu/odata/sap/ZBP_WF_SRV
